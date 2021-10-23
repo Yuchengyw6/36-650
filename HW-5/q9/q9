@@ -1,0 +1,13 @@
+# 9
+def palindrome(str1):
+    tmp = True
+    for i in range(len(str1)):
+        if str1[i] != str1[len(str1)-1-i]:
+            tmp = False
+            break
+        if i >= len(str1)-1-i:
+            break
+    return tmp
+
+palindrome("kayak")
+palindrome("hello")

@@ -1,0 +1,17 @@
+# 7
+def create_500_dummy():
+    conn = psycopg2.connect(host="localhost", 
+                        port="5432", 
+                        user="postgres", 
+                        password="990331", 
+                        database="postgres")
+    cur = conn.cursor()
+    cur.execute(''' 
+INSERT INTO employees(id,fname, lname) 
+SELECT generate_series(1,500),'Yucheng','Wang';''')
+    conn.commit()
+    print("500 Dummy records populated")
+    cur.close()
+    conn.close()
+create_500_dummy()
+

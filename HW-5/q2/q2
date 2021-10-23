@@ -1,0 +1,13 @@
+#2
+def remove_punctations(str1):
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    tmp_str = ''
+    for i in range(len(str1)):
+        tmp = True
+        for j in range(len(punctuations)):
+            if str1[i] == punctuations[j]:
+                tmp = False
+                break
+        if tmp == True: tmp_str += str1[i]
+    return tmp_str
+remove_punctations("Hello in 36-650, & other MSP courses.")

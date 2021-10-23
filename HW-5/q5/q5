@@ -1,0 +1,11 @@
+# 5
+def trees(n):
+    if type(n) is not int or n<0:
+        return
+    else:
+        for j in range(n):
+            print(" " * (n-j),end="")
+            print("* " * (j+1),end="")
+            print("")
+            print("")
+trees(5)

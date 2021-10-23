@@ -1,0 +1,27 @@
+#6
+
+import subprocess
+import sys
+import psycopg2
+
+#tweak the database parameters to match your specific postgres database.
+
+def create_employees_table():
+    conn = psycopg2.connect(host="localhost", 
+                        port="5432", 
+                        user="postgres", 
+                        password="990331", 
+                        database="postgres"
+                        #You may add the following line if you have schemaa
+                        #,options="-c search_path=nfl"
+                       )
+    cur = conn.cursor()
+    cur.execute('''CREATE TABLE employees (id SERIAL PRIMARY KEY,
+fname VARCHAR(10),
+lname VARCHAR(10) 
+);''')
+    conn.commit()
+    print("table created")
+    cur.close()
+    conn.close()
+create_employees_table()

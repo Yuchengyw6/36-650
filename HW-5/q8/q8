@@ -1,0 +1,16 @@
+# 8
+def display_10_records():
+    conn = psycopg2.connect(host="localhost", 
+                        port="5432", 
+                        user="postgres", 
+                        password="990331", 
+                        database="postgres")
+    cur = conn.cursor()
+    cur.execute('''
+select * from employees limit 10''')
+    conn.commit()
+    for row in cur:
+        print(row)
+    cur.close()
+    conn.close()
+display_10_records()
